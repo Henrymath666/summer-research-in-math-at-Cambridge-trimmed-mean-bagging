@@ -1,0 +1,77 @@
+{
+  "design": "exact population-bag target accuracy",
+  "metric": "empirical (1-rho)-quantile of |T_{alpha,B}-f_P|",
+  "seed": 20260801,
+  "seed_selection": false,
+  "B": 21,
+  "alphas": [
+    0.0,
+    0.047619047619047616,
+    0.14285714285714285
+  ],
+  "replications_per_model": 2400000,
+  "preassigned_independent_blocks": 12,
+  "failure_probability_range": [
+    0.001,
+    0.2
+  ],
+  "models": {
+    "cauchy_location_bag_mean": {
+      "row_distribution": "standard Cauchy",
+      "bag_size": 5,
+      "population_target": 0.0,
+      "one_bag_tail_index": 1.0,
+      "radii": {
+        "alpha=0": {
+          "radius_at_rho_0.01": 64.13131540515369,
+          "radius_at_rho_0.001": 634.3461558845536,
+          "predicted_loglog_power": -1.0,
+          "fitted_loglog_power_rho_0.001_to_0.01": -0.9939805661933648
+        },
+        "alpha=0.047619047619": {
+          "radius_at_rho_0.01": 4.300245907237424,
+          "radius_at_rho_0.001": 12.316311573123741,
+          "predicted_loglog_power": -0.5,
+          "fitted_loglog_power_rho_0.001_to_0.01": -0.4566481738589788
+        },
+        "alpha=0.142857142857": {
+          "radius_at_rho_0.01": 1.4859211476064598,
+          "radius_at_rho_0.001": 2.397314683817082,
+          "predicted_loglog_power": -0.25,
+          "fitted_loglog_power_rho_0.001_to_0.01": -0.20759607301041863
+        }
+      }
+    },
+    "symmetric_lomax_bag_median": {
+      "absolute_tail": "P(|Z|>t)=(1+t)^(-3/4)",
+      "bag_size": 3,
+      "population_target": 0.0,
+      "one_bag_tail_index": 1.5,
+      "radii": {
+        "alpha=0": {
+          "radius_at_rho_0.01": 10.404384991338238,
+          "radius_at_rho_0.001": 48.5618505882954,
+          "predicted_loglog_power": -0.6666666666666666,
+          "fitted_loglog_power_rho_0.001_to_0.01": -0.669859751993027
+        },
+        "alpha=0.047619047619": {
+          "radius_at_rho_0.01": 2.121526474269317,
+          "radius_at_rho_0.001": 4.009302875569751,
+          "predicted_loglog_power": -0.3333333333333333,
+          "fitted_loglog_power_rho_0.001_to_0.01": -0.2760267617619839
+        },
+        "alpha=0.142857142857": {
+          "radius_at_rho_0.01": 1.1287642714825885,
+          "radius_at_rho_0.001": 1.6967642815083592,
+          "predicted_loglog_power": -0.16666666666666666,
+          "fitted_loglog_power_rho_0.001_to_0.01": -0.1761880039386463
+        }
+      }
+    }
+  },
+  "runtime_seconds": 8.979582999832928,
+  "outputs": {
+    "pdf": "simulations/heavy_tail_accuracy.pdf",
+    "png": "simulations/heavy_tail_accuracy.png"
+  }
+}
